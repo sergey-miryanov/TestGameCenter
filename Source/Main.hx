@@ -107,9 +107,11 @@ class Main extends Sprite {
   function onGameCenterEvent(e : GameCenterEvent)
   {
     log.text.text = "type: " + e.type;
+    trace("type: " + e.type);
     if(e.type == GameCenterEvent.AUTH_SUCCESS)
     {
-      log.text.text = e.type;
+      log.text.text = "SUCCESS: " + e.type;
+      trace("SUCCESS: " + e.type);
       authenticate.setEnabled(false);
       showPlayerName.setEnabled(true);
       showPlayerID.setEnabled(true);
@@ -121,11 +123,13 @@ class Main extends Sprite {
     }
     else if(e.type == GameCenterEvent.AUTH_FAILURE)
     {
-      log.text.text = e.type + ": " + e.data;
+      log.text.text = "FAILED: " + e.type + ": " + e.data;
+      trace("FAILED: " + e.type + ": " + e.data);
     }
     else
     {
-      log.text.text = e.type;
+      log.text.text = "OTHER: " + e.type;
+      trace("OTHER: " + e.type);
     }
   }
 
